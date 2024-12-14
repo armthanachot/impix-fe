@@ -5,7 +5,7 @@ import { gapi } from 'gapi-script'
 import { GoogleUserProfileType } from './types/google'
 
 function App() {
-  const clientId = '-'
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
   const [profile, setProfile] = useState<GoogleUserProfileType | null>(null)
   useEffect(() => {
     const initClient = () => {
