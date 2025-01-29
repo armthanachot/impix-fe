@@ -3,9 +3,10 @@ import './App.css'
 import { GoogleLogin, GoogleLoginResponse, GoogleLogout, GoogleLoginResponseOffline } from 'react-google-login'
 import { gapi } from 'gapi-script'
 import { GoogleUserProfileType } from './types/google'
+import Profile from './components/Profile'
 
 function App() {
-  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID
+  const clientId: string = import.meta.env.VITE_GOOGLE_CLIENT_ID
   const [profile, setProfile] = useState<GoogleUserProfileType | null>(null)
   useEffect(() => {
     const initClient = () => {
@@ -42,10 +43,8 @@ function App() {
       <br />
       {profile ? (
         <div>
-          <img src={profile.imageUrl} alt="" />
-          <h3>User Logged in</h3>
-          <p>Name: {profile.name}</p>
-          <p>Email: {profile.email}</p>
+          {/* <img src={profile.imageUrl} alt="" /> */}
+          <Profile  uProfile={profile} />
           <br />
           <br />
           <GoogleLogout
